@@ -60,7 +60,7 @@ feature_names = num_features + list(preprocessor.named_transformers_['cat'].get_
 
 X_tr, X_te, y_tr, y_te = train_test_split(X_proc, y, test_size=0.2, random_state=40)
 
-ridge = Ridge().fit(X_tr, y_tr) #.fit(X_tr, y_tr) — обучаем: показываем признаки и правильные ответы, модель ищет зависимость.
+ridge = Ridge().fit(X_tr, y_tr)
 coeffs = pd.Series(ridge.coef_, index=feature_names)
 top10 = coeffs.abs().nlargest(10)
 print("Топ-10 признаков:", top10.index.tolist())
